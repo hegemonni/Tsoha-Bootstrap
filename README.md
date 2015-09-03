@@ -2,7 +2,7 @@
 
 Yleisiä linkkejä:
 
-* [Linkki sovellukseeni](tmbrunil.users.cs.helsinki.fi/tsoha)
+* [Linkki sovellukseeni](http://tmbrunil.users.cs.helsinki.fi/tsoha)
 * [Linkki dokumentaatiooni](https://www.github.com/hegemonni/Tsoha-Bootstrap/doc/johdanto)
 
 ## Työn aihe
