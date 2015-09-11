@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Tilaa uusi tietokanta</h1>
+
+  <form>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox">
+        Takautuvat
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox">
+        Syötteenä
+      </label>
+    </div>
+    <div class="form-group">
+      <label>Tilauksen nimi</label>
+      <input class="form-control" value="Eduskuntavaalit 2015" type="text">
+    </div>
+    <div class="form-group">
+      <label>Alkaen</label>
+      <input class="form-control" value="11.11.2011" type="text">
+    </div>
+     <div class="form-group">
+      <label>Päättyen (takautuvat tilaukset)</label>
+      <input class="form-control" value="11.11.2014" type="text">
+    </div>
+    <div class="form-group">
+      <label>Hashtagit</label>
+      <input class="form-control" value="#vaalit2015" type="text">
+    </div>
+    <div class="form-group">
+      <label>Kuvaus tilauksesta</label>
+      <textarea class="form-control"> Tähän tulee kuvaus.
+      </textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Tallenna</button>
+    </div>
+  </form>
+{% endblock %}
