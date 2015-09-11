@@ -9,7 +9,7 @@ Yleisiä linkkejä:
 
 Twitter-ryömijä ja -tietokanta.
 
-### Bootstrap-linkkejä:
+## Bootstrap-linkkejä
 
 * [typography](http://getbootstrap.com/css/#type) - tekstin asettelu ja tyylittely
 * [tables](http://getbootstrap.com/css/#tables) - taulukot
