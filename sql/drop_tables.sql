@@ -1,1 +1,4 @@
 -- Lisää DROP TABLE lauseet tähän tiedostoon
+DROP TABLE IF EXISTS Users CASCADE; -- Muista IF EXISTS ja CASCADE parametrit!
+DROP TABLE IF EXISTS Tweets CASCADE;
+DROP TABLE IF EXISTS Hashtags CASCADE;
