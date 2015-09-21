@@ -1,5 +1,6 @@
 <?php
 
+// require 'app/models/tweets.php';
 class HelloWorldController extends BaseController{
   // ...
 
@@ -9,13 +10,17 @@ public static function index(){
       View::make('etusivu.html');
     }
 
-    public static function sandbox(){
-      View::make('helloworld.html');
-}
-
-  public static function tilaus(){
-    View::make('tilaus.html');
+  public static function sandbox(){
+      // View::make('helloworld.html');
+      $tweet_id = Tweet::find(0);
+      $tweets = Tweet::all();
+      Kint::dump($tweets);
+      Kint::dump($tweet_id);
   }
+
+  // public static function tilaus(){
+  //   View::make('tilaus.html');
+  // }
 
   public static function tietokannat(){
     View::make('tietokannat.html');
