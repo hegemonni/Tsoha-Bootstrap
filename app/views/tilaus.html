@@ -2,6 +2,8 @@
 {% block content %}
   <h1>Tilaa uusi tietokanta</h1>
 
+  <div class="alert alert-success">{{message}}
+  </div>
   <form method="post" action="{{base_path}}/scraper">
     <div class="checkbox">
       <label>
@@ -17,23 +19,23 @@
     </div>
     <div class="form-group">
       <label>Tilauksen nimi</label>
-      <input class="form-control" value="Eduskuntavaalit 2015" type="text">
+      <input class="form-control" name="name" type="text">
     </div>
     <div class="form-group">
       <label>Alkaen</label>
-      <input class="form-control" value="11.11.2011" type="text">
+      <input class="form-control" name="start_date" type="text">
     </div>
      <div class="form-group">
       <label>Päättyen (takautuvat tilaukset)</label>
-      <input class="form-control" value="11.11.2014" type="text">
+      <input class="form-control" name="end_date" type="text">
     </div>
     <div class="form-group">
       <label>Hashtagit</label>
-      <input class="form-control" value="#vaalit2015" type="text">
+      <input class="form-control" name="hashtags" type="text">
     </div>
     <div class="form-group">
       <label>Kuvaus tilauksesta</label>
-      <textarea class="form-control"> Tähän tulee kuvaus.
+      <textarea name="description">
       </textarea>
     </div>
     <div class="form-group">

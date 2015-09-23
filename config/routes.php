@@ -42,5 +42,8 @@ $routes->get('/tilaus', function(){
   RequestController::create();
 });
 
+$routes->get('/tilaus/:id', function($id){
+  RequestController::show($id);
+});
 
   

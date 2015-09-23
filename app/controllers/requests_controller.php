@@ -5,7 +5,7 @@ class RequestController extends BaseController{
   public static function tilaus(){
     // Haetaan kaikki tilaukset tietokannasta
     $requests = Request::all();
-    // Renderöidään tiedosto tilaus.html muuttujan $games datalla
+    // Renderöidään tiedosto tilaus.html muuttujan $requests datalla
     View::make('tilaus.html', array('requests' => $requests));
 	}
 
@@ -13,16 +13,22 @@ class RequestController extends BaseController{
     $params = $_POST;
     $request = new Request(array(
     	'name' => $params['name'],
-    	'alkaen'=> $params['alkaen'],
-    	'paattyen' => $paattyen['paattyen'],
-    	'hashtagit' => $params['hashtagit'],
-    	'kuvaus' => $params['kuvaus']
+    	'start_date'=> $params['start_date'],
+    	'end_date' => $params['end_date'],
+    	'hashtags' => $params['hashtags'],
+    	'description' => $params['description']
     ));
 
-    Kint::dump($params);
+    // Kint::dump($params);
     
     $request->save();
 
-    // Redirect::to('/tilaus/' . $request->id, array('message' => 'Tilaus onnistui ja on nyt käsittelyssä.'));
+    Redirect::to('/tilaus/' . $request->id, array('message' => 'Tilaus onnistui ja on nyt käsittelyssä.'));
+  }
+
+  public static function show($id){
+    $request = Request::find($id);
+    View::make('tilaus.html');
+
   }
 }

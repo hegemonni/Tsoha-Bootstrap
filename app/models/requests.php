@@ -1,7 +1,7 @@
 <?php
 	
 	class Request extends BaseModel{
-		public $id, $name, $tstart_date, $end_date, $description, $hashtags;
+		public $id, $name, $start_date, $end_date, $description, $hashtags;
 
 		public function __construct($attributes) {
 			parent::__construct($attributes);
@@ -48,7 +48,17 @@
 			return null;
 		}
 
-		
+		public static function scrape($id) {
+			$query = DB::connection()->prepare('SELECT hashtags FROM Requests where id = :id LIMIT 1');
+			$query->execute(array('id' => $id));
+			$row = $query->fetch();
+
+			if($row) {
+				$hashtags = $row['hashtags'];
+			}
+
+			$scrape = exec("python twitter-api.py" . $hashtags);
+		}
 
 		public function save(){
 			// Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
@@ -58,9 +68,9 @@
     		// Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
     		$row = $query->fetch();
     		// Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
-    		$row = $query->fetch();
-  			Kint::trace();
- 			Kint::dump($row);
-    		// $this->id = $row['id'];
+    		
+  		// 	Kint::trace();
+ 			// Kint::dump($row);
+    		$this->id = $row['id'];
   		}
 	}
