@@ -55,9 +55,10 @@
 
 			if($row) {
 				$hashtags = $row['hashtags'];
+				$scrape = exec("python twitter-api.py " . $hashtags);
 			}
 
-			$scrape = exec("python twitter-api.py" . $hashtags);
+			
 		}
 
 		public function save(){
