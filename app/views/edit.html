@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+  
+  <div class="alert alert-success">{{message}}
+  </div>
+  <h1>Muokkaa tilausta</h1>
+  <form method="post" action="{{base_path}}/scraper">
+    {% for request in requests %}
+    <div class="checkbox">
+      <label>
+        <input type="checkbox">
+        Takautuvat
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox">
+        Syötteenä
+      </label>
+    </div>
+    <div class="form-group">
+      <label><a href="{{base_path}}/request/{{request.id}}">{{request.name}}</a></label>
+      <input class="form-control" name="name" type="text">
+    </div>
+    <div class="form-group">
+      <label>Alkaen</label>
+      <input class="form-control" name="start_date" type="text">
+    </div>
+     <div class="form-group">
+      <label>Päättyen (takautuvat tilaukset)</label>
+      <input class="form-control" name="end_date" type="text">
+    </div>
+    <div class="form-group">
+      <label>Hashtagit</label>
+      <input class="form-control" name="hashtags" type="text">
+    </div>
+    <div class="form-group">
+      <label>Kuvaus tilauksesta</label>
+      <textarea name="description">
+      </textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Tallenna</button>
+    </div>
+  </form>
+
+{% endblock %}

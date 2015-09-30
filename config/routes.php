@@ -16,6 +16,10 @@
   		RequestController::tilaus();
 	});
 
+  $routes->get('/tilaukset', function() {
+      RequestController::tilaukset();
+  });
+
 	$routes->get('/tietokannat', function() {
   		HelloWorldController::tietokannat();
 	});
@@ -34,6 +38,18 @@
 
   $routes->post('/login', function() {
       UserController::handle_login();
+  });
+
+  $routes->get('/tilaus/:id/edit', function($id){
+      RequestController::edit($id);
+  });
+  
+  $routes->post('/tilaus/:id/edit', function($id){
+      RequestController::update($id);
+  });
+
+  $routes->post('/tilaus/:id/destroy', function($id){
+      RequestController::destroy($id);
   });
 
   $routes->get('/tietokannat', function(){

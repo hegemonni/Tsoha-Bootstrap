@@ -43,6 +43,10 @@ public static function sandbox(){
     View::make('tietokannat.html');
   }
 
+    public static function tilaukset(){
+    View::make('tilaukset.html');
+  }
+
   public static function esittelysivu(){
     View::make('esittelysivu.html');
   }

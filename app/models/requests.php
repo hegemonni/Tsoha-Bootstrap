@@ -5,6 +5,7 @@
 
 		public function __construct($attributes) {
 			parent::__construct($attributes);
+			$this->validators = array('validate_string_lenght', 'validate_string_date', 'validate_string_hashtag');
 		}
 
 		public static function all() {
@@ -56,7 +57,10 @@
 			if($row) {
 				$hashtags = $row['hashtags'];
 				$scrape = exec("python twitter-api.py " . $hashtags);
+				// todo: wrappaa http-pyyntöön ylläoleva
+				// googlaa: php-http request
 			}
+
 
 			
 		}
@@ -72,6 +76,24 @@
     		
   		// 	Kint::trace();
  			// Kint::dump($row);
+    		$this->id = $row['id'];
+  		}
+
+
+		public function update(){
+			$query = DB::connection()->prepare('UPDATE Requests (name, start_date, end_date, description, hashtags) VALUES (:name, :start_date, :end_date, :description, :hashtags) RETURNING id');
+    		$query->execute(array('name' => $this->name, 'start_date' => $this->start_date, 'end_date' => $this->end_date, 'description' => $this->description, 'hashtags' => $this->hashtags));
+    		$row = $query->fetch();
+
+    		Kint::trace();
+ 			Kint::dump($row);
+    		$this->id = $row['id'];
+  		}
+
+  		public function delete(){
+			$query = DB::connection()->prepare('DELETE Requests (name, start_date, end_date, description, hashtags) VALUES (:name, :start_date, :end_date, :description, :hashtags) RETURNING id');
+    		$query->execute(array('name' => $this->name, 'start_date' => $this->start_date, 'end_date' => $this->end_date, 'description' => $this->description, 'hashtags' => $this->hashtags));
+    		$row = $query->fetch();
     		$this->id = $row['id'];
   		}
 	}
