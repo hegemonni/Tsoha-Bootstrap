@@ -1,7 +1,7 @@
 <?php
 
 class Users extends BaseModel {
-	public $id, $name, $password, $requests;
+	public $id, $user_id, $screen_name, $name;
 // $user_id, 
 
 	public function __construct($attributes) {
@@ -18,8 +18,8 @@ class Users extends BaseModel {
 			$users[] = new Users(array(
 				'id' => $row['id'],
 				'name' => $row['name'],
-				'password' => $row['password'],
-				'requests' => $row['requests'],
+				'user_id' => $row['user_id'],
+				'screen_name' => $row['screen_name'],
 			));
 
 		return $users;
@@ -34,9 +34,9 @@ class Users extends BaseModel {
 		if($row) {
 			$Tweets = new Users(array(
 				'id' => $row['id'],
+				'user_id' => $row['user_id'],
 				'name' => $row['name'],
-				'password' => $row['password'],
-				'requests' => $row['requests'],
+				'screen_name' => $row['screen_name'],
 			));
 
 		return $users;
@@ -44,3 +44,4 @@ class Users extends BaseModel {
 	return null;
 	}
   }
+

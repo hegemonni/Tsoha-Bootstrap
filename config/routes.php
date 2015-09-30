@@ -1,12 +1,12 @@
 <?php
 
-  	$routes->get('/', function() {
+  $routes->get('/', function() {
     	HelloWorldController::index();
-  	});
+  });
 
-  	$routes->get('/hiekkalaatikko', function() {
+  $routes->get('/hiekkalaatikko', function() {
     	HelloWorldController::sandbox();
-  	});
+  });
 
 	$routes->get('/etusivu', function() {
   		HelloWorldController::index();
@@ -28,22 +28,30 @@
   		HelloWorldController::linkkeja();
 	});
 
-$routes->get('/tietokannat', function(){
-    TweetController::tietokannat();
-});
+  $routes->get('/login', function() {
+      UserController::login();
+  });
 
-// Tilauksen lisääminen tietokantaan
-$routes->post('/scraper', function(){
-    RequestController::store();
-});
+  $routes->post('/login', function() {
+      UserController::handle_login();
+  });
 
-// Tilauslomakkeen näyttäminen
-$routes->get('/tilaus', function(){
-  RequestController::create();
-});
+  $routes->get('/tietokannat', function(){
+      TweetController::tietokannat();
+  });
 
-$routes->get('/tilaus/:id', function($id){
-  RequestController::show($id);
-});
+  // Tilauksen lisääminen tietokantaan
+  $routes->post('/scraper', function(){
+      RequestController::store();
+  });
+
+  // Tilauslomakkeen näyttäminen
+  $routes->get('/tilaus', function(){
+      RequestController::create();
+  });
+
+  $routes->get('/tilaus/:id', function($id){
+      RequestController::show($id);
+  });
 
   

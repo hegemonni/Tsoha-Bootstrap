@@ -10,12 +10,29 @@ public static function index(){
       View::make('etusivu.html');
     }
 
-  public static function sandbox(){
+public static function sandbox(){
       // View::make('helloworld.html');
-      $tweet_id = Tweet::find(0);
-      $tweets = Tweet::all();
-      Kint::dump($tweets);
-      Kint::dump($tweet_id);
+      // $tweet_id = Tweet::find(0);
+      // $tweets = Tweet::all();
+      // Kint::dump($tweets);
+      // Kint::dump($tweet_id);
+
+      // $doom = new Request(array(
+      // 'name' => 'd',
+      // 'hahstag' => 'eilen',
+      // ));
+      // $errors = $doom->errors();
+
+      // Kint::dump($errors);
+
+      $query = DB::connection()->prepare('SELECT * FROM Users WHERE name = :name AND password = :password LIMIT 1', array('name' => $name, 'password' => $password));
+      $query->execute();
+      $row = $query->fetch();
+      if($row){
+      // Käyttäjä löytyi, palautetaan löytynyt käyttäjä oliona
+      }else{
+      // Käyttäjää ei löytynyt, palautetaan null
+      }
   }
 
   // public static function tilaus(){

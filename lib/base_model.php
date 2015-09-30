@@ -20,10 +20,33 @@
       $errors = array();
 
       foreach($this->validators as $validator){
+        // $validator = 'method_test';
+        // $this->{$validator}();
+        // $errors[] = $validator;
+
+        // $errors = array_merge($errors, $validator_errors);
         // Kutsu validointimetodia tässä ja lisää sen palauttamat virheet errors-taulukkoon
       }
 
       return $errors;
+    }
+
+    public function validate_string_length($string, $length){
+
+    }
+
+    public function validate_string_hashtag($string, $length) {
+      $firstLetter = $string[0];
+
+        if ($firstLetter =! '#') {
+          $errors[] = 'The hashtag field should start with a \'#\' sign.';
+        }
+
+        return $errors;
+    }
+
+    public function validate_string_date($string, $length) {
+
     }
 
   }

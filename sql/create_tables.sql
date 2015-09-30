@@ -8,6 +8,13 @@ CREATE TABLE Requests(
 );
 
 CREATE TABLE Users(
+   id SERIAL PRIMARY KEY,
+   name varchar(100) NOT NULL,
+   password varchar(15) NOT NULL,
+   requests int REFERENCES Requests
+); 
+
+CREATE TABLE TwitterUsers(
    id SERIAL PRIMARY KEY, -- SERIAL tyyppinen pääavain pitää huolen, että tauluun lisätyllä rivillä on aina uniikki pääavain. Kätevää!
    user_id int NOT NULL,
    name varchar(140) NOT NULL, -- Muista erottaa sarakkeiden määrittelyt pilkulla!
@@ -22,7 +29,7 @@ CREATE TABLE Hashtags(
 
 CREATE TABLE Tweets(
    id SERIAL PRIMARY KEY,
-   user_id bigint REFERENCES Users,
+   user_id bigint REFERENCES TwitterUsers,
    hashtag_id bigint REFERENCES Hashtags,
    tweet_id bigint NOT NULL,
    tweet_text varchar(140) NOT NULL,
