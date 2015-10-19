@@ -19,7 +19,7 @@
       // Lisätään $errors muuttujaan kaikki virheilmoitukset taulukkona
       $errors = array();
 
-      foreach($this->validators as $validator){
+      foreach ($this->validators as $validator) {
         // $validator = 'method_test';
         // $this->{$validator}();
         // $errors[] = $validator;

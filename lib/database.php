@@ -11,6 +11,8 @@
             // Alustetaan PDO
             if(isset($config['username'])){
               $connection = new PDO($config['resource'], $config['username'], $config['password']);
+              // korvaa ylläoleva omalla liittymällä / connectionilla. etsi vaikka php PDO.
+
             }else{
               $connection = new PDO($config['resource']);
             }

@@ -25,13 +25,4 @@ class UsersController extends BaseController{
   		Redirect::to('/', array('message' => 'Welcome back ' . $user->name . '!'));
   	}
   }
-
-  $query = DB::connection()->prepare('SELECT * FROM Player WHERE name = :name AND password = :password LIMIT 1', array('name' => $name, 'password' => $password));
-$query->execute();
-$row = $query->fetch();
-if($row){
-  // Käyttäjä löytyi, palautetaan löytynyt käyttäjä oliona
-}else{
-  // Käyttäjää ei löytynyt, palautetaan null
-}
 }

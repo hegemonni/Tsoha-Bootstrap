@@ -3,14 +3,8 @@
 class TweetController extends BaseController{
   public static function tietokannat(){
     // Haetaan kaikki twiitit tietokannasta
-    $request = new Request(array(
-    	'name' => $params['name'];
-    	'alkaen'=> $params['alkaen'];
-    	'paattyen' => $paattyen['paattyen'];
-    	'hashtagit' => $params['hashtagit'],
-    	'kuvaus' => $params['kuvaus'];
-    	));
+    $tweets = Tweet::all();
     // Renderöidään views kansiossa sijaitseva tiedosto tietokannat.html muuttujan $tweets datalla
-    $request->save();
+    View::make('tietokannat.html', array('tweets' => $tweets));
   }
 }

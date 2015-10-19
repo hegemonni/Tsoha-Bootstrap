@@ -13,6 +13,7 @@
       ),
       'mysql' => array(
         'resource' => 'mysql:unix_socket=/home/KAYTTAJATUNNUS/mysql/socket;dbname=mysql',
+        // ylläoleva pitää muuttaa jos asennetaan toiselle palvelimelle
         'username' => 'root',
         'password' => 'SALASANA'
       )

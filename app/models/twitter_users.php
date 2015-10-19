@@ -9,13 +9,13 @@ class Users extends BaseModel {
 	}
 
 	public static function all() {
-		$query = DB::connection()->prepare('SELECT * FROM Users');
+		$query = DB::connection()->prepare('SELECT * FROM TwitterUsers');
 		$query->execute();
 		$rows = $query->fetchAll();
 		$users = array();
 
 		foreach($rows as $row) {
-			$users[] = new Users(array(
+			$users[] = new TwitterUsers(array(
 				'id' => $row['id'],
 				'name' => $row['name'],
 				'user_id' => $row['user_id'],
@@ -27,12 +27,12 @@ class Users extends BaseModel {
 	}
 
 	public static function find($id) {
-		$query = DB::connection()->prepare('SELECT * FROM Users where id = :id LIMIT 1');
+		$query = DB::connection()->prepare('SELECT * FROM TwitterUsers where id = :id LIMIT 1');
 		$query->execute(array('id' => $id));
 		$row = $query->fetch();
 
 		if($row) {
-			$Tweets = new Users(array(
+			$Tweets = new TwitterUsers(array(
 				'id' => $row['id'],
 				'user_id' => $row['user_id'],
 				'name' => $row['name'],
