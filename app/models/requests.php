@@ -54,31 +54,11 @@
 			$query_1->execute(array('id' => $id));
 			$row = $query_1->fetch();
 
-			// $name = '';
-   //  		$description = '';
-    		$json = '';
-    		$name = $row['name'];
+			$name = $row['name'];
     		$description = $row['description'];
+			$hashtag = $row['hashtags'];
+			$json = file_get_contents('https://pytwrest.herokuapp.com/tweets/' .$hashtag);
 
-			if($row) {
-				$hashtag = $row['hashtags'];
-				$json = file_get_contents('https://pytwrest.herokuapp.com/tweets/' .$hashtag);
-    			// $jsonfile = fopen($hashtag .'.txt', "w");
-    			// fwrite($jsonfile, $json);
-    			return $json;
-    		}
-    		
-   //  		if($row) {
-   //  			$name = $row['name'];
-   //  			return $name;
-
-			// }
-
-			// if($row) {
-   //  			$description = $row['description'];
-   //  			return $description;
-
-			// }
 
 			$query_2 = DB::connection()->prepare('INSERT INTO Json (name, json_file, description) VALUES (:name, :json_file, :description)');
     		$query_2->execute(array('name' => $name, 'json_file' => $json, 'description' => $description));

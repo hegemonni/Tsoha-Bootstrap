@@ -28,9 +28,9 @@ class RequestController extends BaseController{
 
     // Kint::dump($params);
     
-    $id = $request->id;
+    // $id = $request->id;
     $request->save();
-    $request->scrape($id);
+    $request->scrape($request->id);
 
     Redirect::to('/request/' . $request->id, array('message' => 'Tilaus onnistui ja on nyt käsittelyssä.'));
   }
