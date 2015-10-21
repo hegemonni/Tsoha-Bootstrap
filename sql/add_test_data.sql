@@ -3,4 +3,5 @@ INSERT INTO Users (name, password) VALUES ('hegemonni', 'salasana');
 INSERT INTO Tweets (tweet_id, tweet_text, name) VALUES (4567, 'testing', 'Mikael Brunila'); -- Koska id-sarakkeen tietotyyppi on SERIAL, se asetetaan automaattisesti
 INSERT INTO TwitterUsers (user_id, name, screen_name) VALUES (123, 'mikaelbrunila', 'Mikael Brunila');
 INSERT INTO Hashtags (ht_text, indices) VALUES ('#vaalit2015', 1);
+INSERT INTO Json (name, description) VALUES ('#java', 'vaalit');
 

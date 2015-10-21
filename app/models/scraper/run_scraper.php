@@ -1,9 +1,9 @@
-<?php
-	$id = ;
-	$request = Request::find($id);
+// <?php
+// 	$id = ;
+// 	$request = Request::find($id);
 
-	$hashtag='request' . hashtags;
+// 	$hashtag='request' . hashtags;
 	
-	public static function scrape()
-	$scrape = exec("python twitter-api.py .$item");
-	echo $tmp;
+// 	public static function scrape()
+// 	$scrape = exec("python twitter-api.py .$item");
+// 	echo $tmp;

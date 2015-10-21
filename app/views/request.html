@@ -3,43 +3,43 @@
   
   <div class="alert alert-success">{{message}}
   </div>
-  <h1>Tilaa uusi tietokanta</h1>
+  <h1>Request a new batch of data</h1>
   <form method="post" action="{{base_path}}/scraper">
     <div class="checkbox">
       <label>
         <input type="checkbox">
-        Takautuvat
+        REST
       </label>
     </div>
     <div class="checkbox">
       <label>
         <input type="checkbox">
-        Syötteenä
+        STREAM (under development)
       </label>
     </div>
     <div class="form-group">
-      <label>Tilauksen nimi</label>
+      <label>Name</label>
       <input class="form-control" name="name" type="text">
     </div>
-    <div class="form-group">
+<!--     <div class="form-group">
       <label>Alkaen</label>
       <input class="form-control" name="start_date" type="text">
-    </div>
-     <div class="form-group">
+    </div> -->
+<!--      <div class="form-group">
       <label>Päättyen (takautuvat tilaukset)</label>
       <input class="form-control" name="end_date" type="text">
-    </div>
+    </div> -->
     <div class="form-group">
-      <label>Hashtagit</label>
+      <label>Hashtag</label>
       <input class="form-control" name="hashtags" type="text">
     </div>
     <div class="form-group">
-      <label>Kuvaus tilauksesta</label>
+      <label>Description</label>
       <textarea name="description">
       </textarea>
     </div>
     <div class="form-group">
-      <button type="submit" class="btn btn-primary">Tallenna</button>
+      <button type="submit" class="btn btn-primary">Save</button>
     </div>
   </form>
 

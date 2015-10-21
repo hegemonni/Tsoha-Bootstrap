@@ -7,7 +7,7 @@ class HelloWorldController extends BaseController{
 public static function index(){
       // make-metodi renderöi app/views-kansiossa sijaitsevia tiedostoja
        //View::make('home.html');
-      View::make('etusivu.html');
+      View::make('index.html');
     }
 
 public static function sandbox(){
@@ -39,20 +39,20 @@ public static function sandbox(){
   //   View::make('tilaus.html');
   // }
 
-  public static function tietokannat(){
-    View::make('tietokannat.html');
+  public static function data(){
+    View::make('data.html');
   }
 
   //   public static function tilaukset(){
   //   View::make('tilaukset.html');
   // }
 
-  public static function esittelysivu(){
-    View::make('esittelysivu.html');
+  public static function about(){
+    View::make('about.html');
   }
 
-  public static function linkkeja(){
-    View::make('linkkeja.html');
+  public static function links(){
+    View::make('links.html');
   }
 }
 

@@ -2,9 +2,16 @@ CREATE TABLE Requests(
    id SERIAL PRIMARY KEY, 
    name varchar(140) NOT NULL,
    description varchar(1000),
-   start_date varchar(140) NOT NULL, 
-   end_date varchar(140) NOT NULL, 
+   -- start_date varchar(140) NOT NULL, 
+   -- end_date varchar(140) NOT NULL, 
    hashtags varchar(140) NOT NULL
+);
+
+CREATE TABLE Json(
+   id SERIAL PRIMARY KEY, 
+   name varchar(140) NOT NULL,
+   json_file text,  
+   description varchar(1000)
 );
 
 CREATE TABLE Users(
